@@ -13,11 +13,23 @@
             "metadata": {
                 "description": "description"
             }
+        },
+        "parameter2": {
+            "type": "string",
+            "metadata": {
+                "description": "parameter2",
+            }
+        },
+        "email": {
+            "type": "string",
+            "metadata": {
+                "description": "email"
+            }
         }
 
     },
     "variables": {
-        "funcname": "uniquefunctionname121",
+        "funcname": "redefinitfunctionapp2022",
         "customProviderName": "public",
         "customResourceName": "horses"
 
@@ -44,13 +56,10 @@
                 ],
                 "resourceTypes": [
                     {
-                        "name": "[variables('customResourceName')]",
+                        "name": "customvm1",
                         "routingType": "Proxy",
                         "endpoint": "[concat('https://', variables('funcname'), '.azurewebsites.net/api/HttpTriggerFunction1')]"
                     }
-                ],
-                "validations": [
-
                 ]
             }
         }

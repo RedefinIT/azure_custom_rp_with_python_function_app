@@ -4,7 +4,7 @@ functionAppRG="redefinitFunctionAppRG"
 functionAppName="redefinitfunctionapp2022"
 appServicePlan="ASP-"$functionAppName
 storageName="functionappstorage5675"
-storageContainer="jiobmcrpstoragecontainer"
+storageContainer="crpstoragecontainer"
 
 
 az login
@@ -52,7 +52,7 @@ az storage blob upload \
     --container-name $storageContainer \
     --overwrite \
     --name "function.zip" \
-    --file "../customResourceProvider/artifacts/function.zip"
+    --file "../crpFunctionApp/artifacts/function.zip"
 
 # Get URL for function app package
 functionBlob=$(az storage blob url \

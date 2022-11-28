@@ -4,10 +4,7 @@
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
-
         },
-        "resourceTypes": [
-        ],
         "basics": [
             {
                 "name": "parameter1",
@@ -52,9 +49,11 @@
                         "label": "Parameter 2",
                         "type": "Microsoft.Common.TextBox",
                         "visible": true,
-                        "options": {
-                            "icon": "Info",
-                            "text": "Welcome to Azure Managed App Example"
+                        "toolTip": "Enter value for Parameter 2",
+                        "constraints":{
+                            "required": true,
+                            "regex": "^[a-zA-z0-9]",
+                            "validationMessage": "Enter alphanumeric value without special characters"
                         }
                     }
                 ]
@@ -68,6 +67,7 @@
                         "label": "Email",
                         "type": "Microsoft.Common.TextBox",
                         "visible": true,
+                        "toolTip": "Enter your email address",
                         "constraints":{
                             "required": false,
                             "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
@@ -79,7 +79,10 @@
 
         ],
         "outputs": {
-
+            "name": "[basics('parameter1')]",
+            "location": "[location()]",
+            "parameter2": "[steps('step2').parameter2]",
+            "email": "[steps('step3').parameter3]"
         }
 
     }

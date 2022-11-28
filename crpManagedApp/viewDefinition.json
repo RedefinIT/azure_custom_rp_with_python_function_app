@@ -31,9 +31,9 @@
         {
             "kind": "CustomResources",
             "properties": {
-                "displayName": "My Custom Resources",
+                "displayName": "Custom VMs",
                 "version": "1.0.0",
-                "resourceType": "horses",
+                "resourceType": "customvm1",
                 "createUIDefinition": {
                     "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
                     "parameters": {
@@ -50,8 +50,8 @@
                 },
                 "commands": [
                     {
-                        "displayName": "Action on horses",
-                        "path": "horses/feed",
+                        "displayName": "Action on CustomVM1",
+                        "path": "customvm1/change",
                         "icon": "Go",
                         "createUIDefinition": {
                             "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
