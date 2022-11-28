@@ -1,0 +1,64 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        }
+
+    },
+    "variables": {
+        "funcname": "uniquefunctionname121",
+        "customProviderName": "public",
+        "customResourceName": "horses"
+
+    },
+    "functions": [
+
+    ],
+    "resources": [
+        {
+            "type": "Microsoft.CustomProviders/resourceProviders",
+            "name": "[variables('customProviderName')]",
+            "apiVersion": "2018-09-01-preview",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+
+            ],
+            "properties": {
+                "actions": [
+                    {
+                        "name": "action1",
+                        "routingType": "Proxy",
+                        "endpoint": "[concat('https://', variables('funcname'), '.azurewebsites.net/api/HttpTriggerFunction1')]"
+                    }
+                ],
+                "resourceTypes": [
+                    {
+                        "name": "[variables('customResourceName')]",
+                        "routingType": "Proxy",
+                        "endpoint": "[concat('https://', variables('funcname'), '.azurewebsites.net/api/HttpTriggerFunction1')]"
+                    }
+                ],
+                "validations": [
+
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "name": {
+            "type": "string",
+            "value": "default"
+        }
+    }
+}

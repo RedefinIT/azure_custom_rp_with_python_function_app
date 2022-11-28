@@ -1,0 +1,76 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
+    "views": [
+        {
+            "kind": "Overview",
+            "properties": {
+                "header": "Header info",
+                "description": "Description of the view",
+                "commands": [
+                    {
+                        "displayName": "Action 1",
+                        "path": "action1",
+                        "icon": "LaunchCurrent",
+                        "createUIDefinition": {
+                            "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+                            "parameters": {
+                                "basics": [
+
+                                ],
+                                "steps": [
+
+                                ],
+                                "outputs": {}
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "CustomResources",
+            "properties": {
+                "displayName": "My Custom Resources",
+                "version": "1.0.0",
+                "resourceType": "horses",
+                "createUIDefinition": {
+                    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+                    "parameters": {
+                        "basics": [
+
+                        ],
+                        "steps": [
+
+                        ],
+                        "outputs": {
+
+                        }
+                    }
+                },
+                "commands": [
+                    {
+                        "displayName": "Action on horses",
+                        "path": "horses/feed",
+                        "icon": "Go",
+                        "createUIDefinition": {
+                            "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+                            "parameters": {
+                                "basics": [
+
+                                ],
+                                "steps": [
+
+                                ],
+                                "outputs": {
+                                    
+                                }
+                            }
+                        }
+                    }
+                ],
+                "columns": []
+            }
+        }
+    ]
+}

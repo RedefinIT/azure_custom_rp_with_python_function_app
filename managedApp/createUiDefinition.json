@@ -1,0 +1,86 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+
+        },
+        "resourceTypes": [
+        ],
+        "basics": [
+            {
+                "name": "parameter1",
+                "type": "Microsoft.Common.DropDown",
+                "label": "Parameter 1",
+                "placeholder": "Select value from dropdown",
+                "defaultValue": "Value 1",
+                "toolTip": "Give value for Parameter 1",
+                "constraints": {
+                    "allowedValues": [
+                        {
+                            "label": "Value 1",
+                            "value": "value1"
+                        },
+                        {
+                            "label": "Value 2",
+                            "value": "value2"
+                        }
+                    ],
+                    "required": true
+                },
+                "visible": true
+            }
+        ],
+        "steps": [
+            {
+                "name": "step2",
+                "label": "Step 2",
+                "elements": [
+                    {
+                        "name": "info",
+                        "label": "Info",
+                        "type": "Microsoft.Common.InfoBox",
+                        "visible": true,
+                        "options": {
+                            "icon": "Info",
+                            "text": "Welcome to Azure Managed App Example"
+                        }
+                    },
+                    {
+                        "name": "parameter2",
+                        "label": "Parameter 2",
+                        "type": "Microsoft.Common.TextBox",
+                        "visible": true,
+                        "options": {
+                            "icon": "Info",
+                            "text": "Welcome to Azure Managed App Example"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "step3",
+                "label": "Step 3",
+                "elements": [
+                    {
+                        "name": "parameter3",
+                        "label": "Email",
+                        "type": "Microsoft.Common.TextBox",
+                        "visible": true,
+                        "constraints":{
+                            "required": false,
+                            "regex": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
+                            "validationMessage": "Email is not valid. Please re-enter."
+                        }
+                    }
+                ]
+            }
+
+        ],
+        "outputs": {
+
+        }
+
+    }
+}
