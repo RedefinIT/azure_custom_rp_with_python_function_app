@@ -17,7 +17,7 @@
         "parameter2": {
             "type": "string",
             "metadata": {
-                "description": "parameter2",
+                "description": "parameter2"
             }
         },
         "email": {
@@ -29,10 +29,7 @@
 
     },
     "variables": {
-        "funcname": "redefinitfunctionapp2022",
-        "customProviderName": "public",
-        "customResourceName": "horses"
-
+        "funcname": "redefinitfunctionapp2022"
     },
     "functions": [
 
@@ -40,7 +37,7 @@
     "resources": [
         {
             "type": "Microsoft.CustomProviders/resourceProviders",
-            "name": "[variables('customProviderName')]",
+            "name": "public",
             "apiVersion": "2018-09-01-preview",
             "location": "[parameters('location')]",
             "dependsOn": [

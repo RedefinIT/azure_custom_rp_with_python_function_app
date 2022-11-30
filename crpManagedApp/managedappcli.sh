@@ -82,7 +82,7 @@ az managedapp definition update \
   --location $location \
   --resource-group $managedAppDefRG \
   --lock-level ReadOnly \
-  --display-name "Custom Resources Managed App 1" \
+  --display-name "Custom Resources Managed App 1.4" \
   --description "Extends Azure Resource Manager to add custom resources" \
   --authorizations "$userid:$roleid" \
   --package-file-uri $blob

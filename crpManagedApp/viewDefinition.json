@@ -9,7 +9,7 @@
                 "description": "Description of the view",
                 "commands": [
                     {
-                        "displayName": "Action 1",
+                        "displayName": "Ping",
                         "path": "action1",
                         "icon": "LaunchCurrent",
                         "createUIDefinition": {
@@ -19,9 +19,28 @@
 
                                 ],
                                 "steps": [
-
+                                    {
+                                        "name": "Ping",
+                                        "label": "Ping",
+                                        "elements": [
+                                            {
+                                                "name": "hostname",
+                                                "label": "Hostname or IP",
+                                                "type": "Microsoft.Common.TextBox",
+                                                "visible": true,
+                                                "toolTip": "Enter FQDN hostname or IP address to ping",
+                                                "constraints":{
+                                                    "required": true,
+                                                    "regex": "^[a-zA-z0-9._-]{1,30}$",
+                                                    "validationMessage": "Enter alphanumeric value without special characters"
+                                                }
+                                            }   
+                                        ]
+                                    }
                                 ],
-                                "outputs": {}
+                                "outputs": {
+                                    "newPowerState": "[basics('action1param1')]"
+                                }
                             }
                         }
                     }
@@ -38,13 +57,30 @@
                     "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
                     "parameters": {
                         "basics": [
-
+                            
                         ],
                         "steps": [
-
+                            {
+                                "name": "resourceSettings",
+                                "label": "Resource Settings",
+                                "elements": [
+                                    {
+                                        "name": "name",
+                                        "label": "Name",
+                                        "type": "Microsoft.Common.TextBox",
+                                        "visible": true,
+                                        "toolTip": "Enter name of new resource",
+                                        "constraints":{
+                                            "required": true,
+                                            "regex": "^[a-zA-z0-9]",
+                                            "validationMessage": "Enter alphanumeric value without special characters"
+                                        }
+                                    }
+                                ]
+                            }
                         ],
                         "outputs": {
-
+                            "name": "[basics('name')]"
                         }
                     }
                 },
@@ -57,13 +93,44 @@
                             "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
                             "parameters": {
                                 "basics": [
-
+                                    
                                 ],
                                 "steps": [
-
+                                    {
+                                        "name": "power",
+                                        "label": "Power Settings",
+                                        "elements": [
+                                            {
+                                                "name": "vmPower",
+                                                "type": "Microsoft.Common.DropDown",
+                                                "label": "VM Power",
+                                                "placeholder": "Select value from dropdown",
+                                                "defaultValue": "start",
+                                                "toolTip": "Choose the power option",
+                                                "constraints": {
+                                                    "allowedValues": [
+                                                        {
+                                                            "label": "Start",
+                                                            "value": "start"
+                                                        },
+                                                        {
+                                                            "label": "Restart",
+                                                            "value": "restart"
+                                                        },
+                                                        {
+                                                            "label": "Shutdown",
+                                                            "value": "shutdown"
+                                                        }
+                                                    ],
+                                                    "required": true
+                                                },
+                                                "visible": true
+                                            }
+                                        ]
+                                    }
                                 ],
                                 "outputs": {
-                                    
+                                    "newPowerState": "[basics('vmPower')]"
                                 }
                             }
                         }
