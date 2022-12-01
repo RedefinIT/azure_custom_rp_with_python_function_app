@@ -1,7 +1,7 @@
 ########## Script for deploying Managed App to Azure ##########
-
+subscriptionID=<YOUR SUBSCRIPTION ID>
 functionAppRG="redefinitFunctionAppRG"
-functionAppName="redefinitfunctionapp2022"
+functionAppName=<GLOBALLY UNIQUE NAME>
 appServicePlan="ASP-"$functionAppName
 storageName="functionappstorage5675"
 storageContainer="crpstoragecontainer"
